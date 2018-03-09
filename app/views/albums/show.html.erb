@@ -1,8 +1,8 @@
+<h2><%= @album.title %></h2>
 <h3>Album Details</h3>
 <ul>
   <li>Band: <%= @album.band.name %></li>
   <li>Year: <%= @album.year %></li>
-  <li>Title: <%= @album.title %></li>
   <% if @album.live %>
     <li>Type: Live</li>
   <% else %>

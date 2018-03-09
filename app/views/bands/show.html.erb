@@ -2,6 +2,9 @@
 <br>
 <ul>
   <li>Name: <%= @band.name %></li>
+  <% if @band.albums %>
+    <li>Album(s): <%=@band.albums.map{|alb| alb.title}.join(", ")%></li>
+  <% end %>
 </ul>
 <br>
 <form action="<%= band_url(@band) %>" method="post">
