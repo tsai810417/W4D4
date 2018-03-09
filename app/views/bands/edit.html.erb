@@ -1,0 +1,7 @@
+<form action="<%= band_url(@band) %>" method="post">
+  <input type="hidden" name="_method" value="patch"
+  <lable for="name">Name</label>
+  <input id="name" type="text" name="band[name]" value="<%= @band.name %>">
+
+  <input type="submit" value="Edit band">
+</form>

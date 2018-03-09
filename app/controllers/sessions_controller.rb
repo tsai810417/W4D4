@@ -6,21 +6,22 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_credentials(user_params[:email], user_params[:password])
     if user.nil?
-      flash.now[:errors] = "Incorrect email/password"
+      flash.now[:error] = "Incorrect username and/or password"
       render :new
     else
-
+      login_user!(user)
+      flash[:seccess] = "Successfully logged in"
       redirect_to user_url(user)
     end
   end
 
   def destroy
-    current_user = nil
-    session[:session_token] = nil
-    user.reset_session_token!
+    logout!
+    flash[:success] = "Successfully logged out"
     redirect_to new_session_url
   end
 
+  private
   def user_params
     params.require(:user).permit(:email,:password)
   end

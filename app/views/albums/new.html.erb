@@ -1,0 +1,33 @@
+<form action="<%= albums_url %>" method="post">
+  <label for="band_id">Band</label>
+  <select id="band_id" name="album[band_id]">
+    <option disable selected>--Please Select--</option>
+    <% Band.all.each do |band| %>
+      <option value=<%= band.id %>><%= band.name %></option>
+    <% end %>
+  </select>
+
+  <br>
+
+  <label for="year">Year</label>
+  <input id="year" type="number" name="album[year]">
+
+  <br>
+
+  <label for="title">Title</label>
+  <input id="title" type="text" name="album[title]">
+
+  <br>
+
+  <input id="live" type="radio" name="album[live]" value=true>Live
+  <input id="studio" type="radio" name="album[live]" value=false>Studio
+
+  <br>
+
+  <label for="record_id">Record ID</label>
+  <input id="record_id" type="number" name="album[record_id]">
+
+  <br>
+
+  <input type="submit" value="Create">
+</form>

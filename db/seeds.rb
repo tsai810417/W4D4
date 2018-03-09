@@ -7,4 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 10.times do |i|
   User.create(email: "#{i}@google", password: "123456")
-end 
+end
+
+10.times do |i|
+  Band.create(name: "Band ##{i}")
+end
+
+["Spring","Summer","Fall","Winter"].each_with_index do |t, i|
+  Album.create!(band_id: i+2, year: i+2010, title: t, live: [true, false].sample, record_id: i*509)
+end
